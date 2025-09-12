@@ -48,6 +48,13 @@ class Program
                     Console.WriteLine("Omistaja lisätty.");
                     break;
 
+                case "P":
+                    Console.WriteLine("Anna lemmikin nimi:");
+                    string? nimiOmistajan = Console.ReadLine();
+                    
+                    Console.WriteLine(veterinaryDatabase.SearchingNumber(nimiOmistajan));
+                    break;
+
                 case "X":
                     return;
             }

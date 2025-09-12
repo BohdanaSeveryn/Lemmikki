@@ -100,7 +100,30 @@ public class VeterinaryDatabase
         return omistajaId;
     }
 
+    public string SearchingNumber(string nameFromUser)
+    {
+        var connection = new SqliteConnection(connectionString);
+        connection.Open();
 
+        var command = connection.CreateCommand();
+        command.CommandText = @"
+        SELECT Owner.puhelinnumero
+        FROM Owner
+        LEFT JOIN Pet
+        ON Owner.id = Pet.omistaja_id
+        WHERE Pet.nimi = $name;
+        ";
+        command.Parameters.AddWithValue("name", nameFromUser);
+        using var reader = command.ExecuteReader();
+        string numero = "Tälle eläimelle ei ole omistajaa tietokannassa.";
+        if (reader.Read())
+        {
+            numero = reader.GetString(0);
+        }
+
+        connection.Close();
+        return numero;
+    }
 
 
     public void LisaaPet(string nimi, int omistaja_id, string tyyppi)

@@ -49,3 +49,4 @@ C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki\bin\Debug\net9.0\runtimes\
 C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki\obj\Debug\net9.0\Lemmikki.sourcelink.json
