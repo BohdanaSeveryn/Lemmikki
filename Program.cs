@@ -50,9 +50,17 @@ class Program
 
                 case "P":
                     Console.WriteLine("Anna lemmikin nimi:");
-                    string? nimiOmistajan = Console.ReadLine();
+                    string? nimiLemmikin = Console.ReadLine();
                     
-                    Console.WriteLine(veterinaryDatabase.SearchingNumber(nimiOmistajan));
+                    Console.WriteLine(veterinaryDatabase.SearchingNumber(nimiLemmikin));
+                    break;
+
+                case "V":
+                    Console.WriteLine("Anna omistajan nimi:");
+                    string? nimiOmistajan = Console.ReadLine();
+                    Console.WriteLine("Uusi puhelinnumero:");
+                    string? uusiNumero = Console.ReadLine();
+                    veterinaryDatabase.ChangingNumber(nimiOmistajan, uusiNumero);
                     break;
 
                 case "X":
