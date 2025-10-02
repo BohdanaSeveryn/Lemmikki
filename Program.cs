@@ -1,71 +1,41 @@
-﻿using System;
-using Microsoft.Data.Sqlite;
-using SQLitePCL;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using NSwag.AspNetCore;
+using Lemmikki;
+using Lemmikki.Models;
 
-class Program
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddScoped<VeterinaryDatabase>();
+builder.Services.AddScoped<UI>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApiDocument(config =>
 {
-    static void Main(string[] args)
-    {
-        VeterinaryDatabase veterinaryDatabase = new VeterinaryDatabase();
+    config.DocumentName = "Lemmikki";
+    config.Title = "Lemmikki v1";
+    config.Version = "v1";
+});
 
-        while (true)
-        {
-            Console.WriteLine("Haluatko lisätä lemmikin (L), \n lisätä lemmikin omistajan (O), \n löytää lemmikin omistajan puhelinnumeron (P),\n muuttaa omistajan puhelinnumeroa (V) \n vai Lopettaa(X)?");
-            string? command = Console.ReadLine();
+var app = builder.Build();
+app.UseOpenApi();
+app.UseSwaggerUi(config =>
+{
+    config.DocumentTitle = "Lemmikki";
+    config.Path = "/swagger";
+    config.DocumentPath = "/swagger/Lemmikki/swagger.json";
+    config.DocExpansion = "list";
+});
 
-            switch (command)
-            {
-                case "L":
-                    Console.WriteLine("Anna lemmikin nimi:");
-                    string? nimi = Console.ReadLine();
+app.MapControllers();
 
-                    Console.WriteLine("Anna omistajan nimi:");
-                    string? omistajanNimi = Console.ReadLine();
+// Launch the console interface (optional)
+/*using (var scope = app.Services.CreateScope())
+{
+    var ui = scope.ServiceProvider.GetRequiredService<UI>();
+    ui.Run(); 
+}*/
+app.MapGet("/", () => "Tervetuloa Lemmikki API:iin!");
 
-                    Console.WriteLine("Anna omistajan osoite:");
-                    string? osoite = Console.ReadLine();
-
-                    Console.WriteLine("Anna omistajan puhelinnumero:");
-                    string? puhelinnumero = Console.ReadLine();
-
-                    int omistaja_id = veterinaryDatabase.OwnerIdSearching(omistajanNimi, osoite, puhelinnumero);
-
-                    Console.WriteLine("Anna lemmikin tyyppi:");
-                    string? tyyppi = Console.ReadLine();
-
-                    veterinaryDatabase.LisaaPet(nimi, omistaja_id, tyyppi);
-                    break;
-
-                case "O":
-                    Console.WriteLine("Anna omistajan nimi:");
-                    string? nimiO = Console.ReadLine();
-                    Console.WriteLine("Anna omistajan osoite:");
-                    string? osoiteO = Console.ReadLine();
-                    Console.WriteLine("Anna omistajan puhelinnumero:");
-                    string? puhelinnumeroO = Console.ReadLine();
-
-                    veterinaryDatabase.LisaaOwner(nimiO, osoiteO, puhelinnumeroO);
-                    Console.WriteLine("Omistaja lisätty.");
-                    break;
-
-                case "P":
-                    Console.WriteLine("Anna lemmikin nimi:");
-                    string? nimiLemmikin = Console.ReadLine();
-                    
-                    Console.WriteLine(veterinaryDatabase.SearchingNumber(nimiLemmikin));
-                    break;
-
-                case "V":
-                    Console.WriteLine("Anna omistajan nimi:");
-                    string? nimiOmistajan = Console.ReadLine();
-                    Console.WriteLine("Uusi puhelinnumero:");
-                    string? uusiNumero = Console.ReadLine();
-                    veterinaryDatabase.ChangingNumber(nimiOmistajan, uusiNumero);
-                    break;
-
-                case "X":
-                    return;
-            }
-        }
-    }
-}
+app.Run();
