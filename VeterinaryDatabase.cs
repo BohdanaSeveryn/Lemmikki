@@ -4,7 +4,6 @@ using Lemmikki.Models;
 
 namespace Lemmikki
 {
-
     public class VeterinaryDatabase
     {
         private string connectionString = "Data Source=veterinaryDatabase.db";

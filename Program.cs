@@ -5,7 +5,6 @@ using NSwag.AspNetCore;
 using Lemmikki;
 using Lemmikki.Models;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
