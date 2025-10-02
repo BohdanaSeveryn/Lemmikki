@@ -148,4 +148,30 @@ namespace Lemmikki
             connection.Close();
         }
     }
+
+    public void ChangingNumber(string nimiOmistajan, string uusiNumero)
+    {
+        var connection = new SqliteConnection(connectionString);
+        connection.Open();
+        var command = connection.CreateCommand();
+
+        command.CommandText = @"
+        UPDATE Owner 
+        SET puhelinnumero = $newNumber 
+        WHERE nimi = $nimiOmistajan;
+        ;";
+        command.Parameters.AddWithValue("@uusiNumero", uusiNumero);
+        command.Parameters.AddWithValue("@nimiOmistaja", nimiOmistajan);
+        int affectedRows = command.ExecuteNonQuery();
+
+        if (affectedRows == 0)
+        {
+            Console.WriteLine("Omistajaa ei löytynyt.");
+        }
+        else
+        {
+            Console.WriteLine("Puhelinnumero päivitetty onnistuneesti.");
+        }
+        connection.Close();
+    }
 }
