@@ -14,5 +14,7 @@ WORKDIR /app
 
 COPY --from=build /app .
 
+EXPOSE 5001
+
 ENTRYPOINT ["dotnet", "Lemmikki.dll"]
 

@@ -8,7 +8,7 @@ using Lemmikki.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.WebHost.UseUrls("http://0.0.0.0:5000");
+builder.WebHost.UseUrls("http://0.0.0.0:5001");
 builder.Services.AddScoped<VeterinaryDatabase>();
 builder.Services.AddScoped<UI>();
 builder.Services.AddEndpointsApiExplorer();
