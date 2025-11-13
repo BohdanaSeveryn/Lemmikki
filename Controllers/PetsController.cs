@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Lemmikki.Models;
 using Lemmikki;
-using Lemmikki.Models;
+//using Lemmikki.Models;
 
 namespace Lemmikki.Controllers;
 

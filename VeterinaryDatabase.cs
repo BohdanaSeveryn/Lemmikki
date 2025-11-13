@@ -26,7 +26,7 @@ namespace Lemmikki
                     puhelinnumero TEXT
                 );
             ";
-            
+
             commandForOwnerCreating.ExecuteNonQuery();
 
             var commandForPetCreating = connection.CreateCommand();
@@ -147,31 +147,32 @@ namespace Lemmikki
 
             connection.Close();
         }
-    }
+    
 
     public void ChangingNumber(string nimiOmistajan, string uusiNumero)
-    {
-        var connection = new SqliteConnection(connectionString);
-        connection.Open();
-        var command = connection.CreateCommand();
+        {
+            var connection = new SqliteConnection(connectionString);
+            connection.Open();
+            var command = connection.CreateCommand();
 
-        command.CommandText = @"
+            command.CommandText = @"
         UPDATE Owner 
         SET puhelinnumero = $newNumber 
         WHERE nimi = $nimiOmistajan;
         ;";
-        command.Parameters.AddWithValue("@uusiNumero", uusiNumero);
-        command.Parameters.AddWithValue("@nimiOmistaja", nimiOmistajan);
-        int affectedRows = command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("@uusiNumero", uusiNumero);
+            command.Parameters.AddWithValue("@nimiOmistaja", nimiOmistajan);
+            int affectedRows = command.ExecuteNonQuery();
 
-        if (affectedRows == 0)
-        {
-            Console.WriteLine("Omistajaa ei löytynyt.");
+            if (affectedRows == 0)
+            {
+                Console.WriteLine("Omistajaa ei löytynyt.");
+            }
+            else
+            {
+                Console.WriteLine("Puhelinnumero päivitetty onnistuneesti.");
+            }
+            connection.Close();
         }
-        else
-        {
-            Console.WriteLine("Puhelinnumero päivitetty onnistuneesti.");
-        }
-        connection.Close();
     }
 }
