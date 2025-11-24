@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:shared="clr-namespace:Lemmikki.Shared;assembly=Lemmikki.Shared"
+        x:Class="LemmikkiUI.MainWindow"
+        Title="Customer base" Width="600" Height="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Pet's list:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <ListBox ItemsSource="{Binding Pets}" Height="150" Margin="0,0,0,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Text="Owner's list:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <ListBox ItemsSource="{Binding Owners}" Height="150">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>

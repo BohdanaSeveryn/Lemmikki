@@ -1,0 +1,11 @@
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\bin\Debug\net9.0\Lemmikki.Shared.deps.json
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\bin\Debug\net9.0\Lemmikki.Shared.dll
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\bin\Debug\net9.0\Lemmikki.Shared.pdb
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.AssemblyInfoInputs.cache
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.AssemblyInfo.cs
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.csproj.CoreCompileInputs.cache
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.dll
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\refint\Lemmikki.Shared.dll
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\Lemmikki.Shared.pdb
+C:\Users\basev\Bohdana\OhkeSyksy25\MyProject\Lemmikki.Shared\obj\Debug\net9.0\ref\Lemmikki.Shared.dll
